@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="logo-container">
+    <img src="casaaarias.png" alt="Casa Arias IA">
+</div>
+<title>Casa Arias IA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="chat-container">
+
+    <h1>Casa Arias LibrerIA</h1>
+
+    <div class="faq">
+
+        <button onclick="preguntaRapida('¿Cuál es el horario de atención?')">
+            Horarios
+        </button>
+
+        <button onclick="preguntaRapida('¿Dónde están ubicados?')">
+            Ubicación
+        </button>
+
+        <button onclick="preguntaRapida('¿Qué medios de contacto tienen?')">
+            Contacto
+        </button>
+
+        <button onclick="preguntaRapida('¿Qué productos venden?')">
+            Productos
+        </button>
+
+        <button onclick="preguntaRapida('¿Realizan delivery?')">
+            Delivery
+        </button>
+
+    </div>
+
+    <div id="chat"></div>
+
+    <div class="input-area">
+        <input
+            type="text"
+            id="pregunta"
+            placeholder="Preguntá sobre Casa Arias..."
+        >
+        <button onclick="enviarPregunta()">
+            Enviar
+        </button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

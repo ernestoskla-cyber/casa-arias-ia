@@ -1,0 +1,41 @@
+{
+  "nombre": "Casa Arias",
+  "descripcion": "Librería Casa Arias, también conocida como CASA ARIAS Mayorista, ubicada en Cruz del Eje, Córdoba, Argentina.",
+  "actividad": [
+    "Venta mayorista y minorista",
+    "Librería escolar",
+    "Artículos comerciales y técnicos",
+    "Artículos de oficina",
+    "Juguetería",
+    "Bazar",
+    "Regalería",
+    "Artículos de Navidad"
+  ],
+  "sucursales": [
+    {
+      "nombre": "Casa Central - Sucursal Centro",
+      "direccion": "San Martín 331, frente a la Municipalidad de Cruz del Eje. Confirmar numeración antes de publicar."
+    },
+    {
+      "nombre": "Sucursal Zona Sur",
+      "direccion": "Cruz del Eje, Córdoba. Consultar ubicación exacta."
+    }
+  ],
+  "contacto": {
+    "telefonos": [
+      "(03549) 42-3697",
+      "(03549) 46-1612"
+    ],
+    "whatsapp": "+54 9 3543 651557",
+    "email": "info@casa-arias.com",
+    "sitio_web": "https://www.casa-arias.com",
+    "instagram": "@libreriacasaarias"
+  },
+  "informacion_adicional": {
+    "medios_de_pago": "Consultar directamente con Casa Arias.",
+    "horarios": "Consultar los horarios actualizados con el comercio.",
+    "envios": "Consultar disponibilidad y condiciones de envío.",
+    "precios": "Consultar precios actualizados con Casa Arias.",
+    "stock": "Consultar disponibilidad de productos con el comercio."
+  }
+}

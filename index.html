@@ -1,60 +1,75 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<div class="logo-container">
-    <img src="casaaarias.png" alt="Casa Arias IA">
-</div>
-<title>Casa Arias IA</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Asistente virtual de Casa Arias, Cruz del Eje.">
+    <title>Casa Arias IA</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="chat-container">
+    <main class="chat-container">
 
-    <h1>Casa Arias LibrerIA</h1>
+        <header class="encabezado">
+            <img src="casaaarias.png" alt="Logo de Casa Arias" class="logo">
+            <h1>CasaAriasIA</h1>
+            <p>Asistente virtual de Casa Arias</p>
+            <span class="estado">● En línea</span>
+        </header>
 
-    <div class="faq">
+        <section class="bienvenida">
+            <h2>¡Hola! </h2>
+            <p>Soy CasaAriasIA. Estoy acá para ayudarte con información sobre Casa Arias.</p>
+            <p>¿Qué te gustaría saber?</p>
+        </section>
 
-        <button onclick="preguntaRapida('¿Cuál es el horario de atención?')">
-            Horarios
-        </button>
+        <section class="preguntas">
+            <h3>Preguntas frecuentes</h3>
 
-        <button onclick="preguntaRapida('¿Dónde están ubicados?')">
-            Ubicación
-        </button>
+            <button onclick="preguntar('¿Qué productos vende Casa Arias?')">
+                 ¿Qué productos venden?
+            </button>
 
-        <button onclick="preguntaRapida('¿Qué medios de contacto tienen?')">
-            Contacto
-        </button>
+            <button onclick="preguntar('¿Dónde están ubicadas las sucursales?')">
+                 ¿Dónde están ubicados?
+            </button>
 
-        <button onclick="preguntaRapida('¿Qué productos venden?')">
-            Productos
-        </button>
+            <button onclick="preguntar('¿Cuáles son los horarios de atención?')">
+                 ¿Qué horarios tienen?
+            </button>
 
-        <button onclick="preguntaRapida('¿Realizan delivery?')">
-            Delivery
-        </button>
+            <button onclick="preguntar('¿Cuál es el número de WhatsApp?')">
+                 ¿Cómo puedo contactarlos?
+            </button>
 
-    </div>
+            <button onclick="preguntar('¿Realizan ventas mayoristas?')">
+                 ¿Venden por mayor?
+            </button>
+        </section>
 
-    <div id="chat"></div>
+        <section id="chat" class="chat"></section>
 
-    <div class="input-area">
-        <input
-            type="text"
-            id="pregunta"
-            placeholder="Preguntá sobre Casa Arias..."
-        >
-        <button onclick="enviarPregunta()">
-            Enviar
-        </button>
-    </div>
+        <form class="input-area" id="formulario">
+            <input
+                type="text"
+                id="pregunta"
+                placeholder="Escribí tu consulta..."
+                maxlength="1000"
+                autocomplete="off"
+                required
+            >
+            <button type="submit">Enviar</button>
+        </form>
 
-</div>
+        <footer>
+            <p>Casa Arias · Cruz del Eje</p>
+            <small>Tu comercio, más cerca.</small>
+        </footer>
 
-<script src="script.js"></script>
+    </main>
 
+    <script src="script.js"></script>
 </body>
 </html>

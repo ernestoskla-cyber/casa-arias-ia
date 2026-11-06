@@ -8,6 +8,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 dotenv.config();
+console.log("GROQ_API_KEY detectada:", Boolean(process.env.GROQ_API_KEY));
 
 const app = express();
 const PORT = process.env.PORT || 3000;

@@ -1,80 +1,75 @@
-async function enviarPregunta() {
 
-    let input = document.getElementById("pregunta");
+const API_URL = "https://casa-arias-ia.onrender.com/chat";
 
-    let texto = input.value.trim();
+const formulario = document.getElementById("formulario");
+const input = document.getElementById("pregunta");
+const chat = document.getElementById("chat");
 
-    if (texto === "") return;
+function agregarMensaje(texto, tipo) {
+    const mensaje = document.createElement("div");
+
+    mensaje.classList.add("mensaje", tipo);
+    mensaje.textContent = texto;
+
+    chat.appendChild(mensaje);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+async function preguntar(texto) {
+    if (!texto || !texto.trim()) return;
 
     agregarMensaje(texto, "usuario");
 
     input.value = "";
+    input.disabled = true;
+
+    const cargando = document.createElement("div");
+    cargando.classList.add("mensaje", "ia");
+    cargando.textContent = "CasaAriasIA está escribiendo...";
+    chat.appendChild(cargando);
+    chat.scrollTop = chat.scrollHeight;
 
     try {
-
-        let respuesta = await fetch("https://casa-arias-ia.onrender.com/chat", {
-
+        const respuesta = await fetch(API_URL, {
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json"
             },
-
             body: JSON.stringify({
-                mensaje: texto
+                mensaje: texto.trim()
             })
-
         });
 
-        let data = await respuesta.json();
+        const datos = await respuesta.json();
 
-        agregarMensaje(data.respuesta, "ia");
+        cargando.remove();
 
-    } catch (error) {
+        if (!respuesta.ok) {
+            throw new Error(datos.respuesta || "Error del servidor.");
+        }
 
         agregarMensaje(
-            "Error conectando con TuquitoIA.",
+            datos.respuesta || "No recibí una respuesta.",
             "ia"
         );
+
+    } catch (error) {
+        cargando.remove();
+
+        console.error("Error:", error);
+
+        agregarMensaje(
+            "No pude conectarme con CasaAriasIA. Intentá nuevamente en unos minutos.",
+            "ia"
+        );
+
+    } finally {
+        input.disabled = false;
+        input.focus();
     }
 }
 
-function preguntaRapida(texto) {
-
-    document.getElementById("pregunta").value = texto;
-
-    enviarPregunta();
-}
-
-function agregarMensaje(texto, tipo) {
-
-    let chat = document.getElementById("chat");
-
-    let div = document.createElement("div");
-
-    div.classList.add("mensaje");
-    div.classList.add(tipo);
-
-    div.innerHTML = texto;
-
-    chat.appendChild(div);
-
-    chat.scrollTop = chat.scrollHeight;
-}
-
-window.onload = () => {
-
-    agregarMensaje(
-        "¡Hola! Soy La inteligencia artificial de Casa Arias.<br><br>Puedo ayudarte con consultas sobre la librería.",
-        "ia"
-    );
-
-};
-
-document.getElementById("pregunta").addEventListener("keypress", function(event) {
-
-    if (event.key === "Enter") {
-        enviarPregunta();
-    }
-
+formulario.addEventListener("submit", function(event) {
+    event.preventDefault();
+    preguntar(input.value);
 });
